@@ -29,13 +29,24 @@ Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
+
+" Webdev Plugs
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
+" Rainbow Parenthesis
+Plug 'junegunn/rainbow_parentheses.vim'
+
 call plug#end()
 
 " NERDTREE CONFIG:
 " ---------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
@@ -60,11 +71,46 @@ let g:deoplete#enable_at_startup = 1
 colorscheme dracula
 let g:dracula_italic = 1
 
-"SYNTAX HIGHLIGHTING:
+" SYNTAX HIGHLIGHTING:
 "--------------------
+" - Syntax For go:
+let g:tagbar_type_go = {
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports:1',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions'
+        \ ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+        \ },
+        \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+        \ },
+        \ 'ctagsbin'  : 'gotags',
+        \ 'ctagsargs' : '-sort -silent'
+\ }
+
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 syntax on
 
-"HIGHLIGHTING:
+" HIGHLIGHTING:
 "-------------
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -80,3 +126,19 @@ inoremap <C-space> <C-x><C-o>
 " ----
 let g:ale_linters = {'rust': ['rustc', 'rls']}
 let g:ale_rust_cargo_use_check = 1
+
+" WebDev:
+" -------
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+" Graphql:
+" --------
+au BufNewFile,BufRead *.prisma setfiletype graphql
+let g:graphql_javascript_tags = ["gql", "graphql", "Relay.QL"]
+
+" Color Braces:
+" -------------
+au VimEnter * RainbowParentheses
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+
