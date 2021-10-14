@@ -10,6 +10,7 @@ set relativenumber
 set nowrap
 set encoding=UTF-8
 set completeopt=longest,menuone
+set termguicolors
 
 " Plugins:
 " --------
@@ -23,8 +24,10 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'morhetz/gruvbox'
-Plug 'crusoexia/vim-dracula'
+" Plug 'morhetz/gruvbox'
+" Plug 'crusoexia/vim-dracula'
+" Plug 'bluz71/vim-moonfly-colors'
+Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'dense-analysis/ale'
@@ -39,6 +42,9 @@ Plug 'jparise/vim-graphql'
 
 " Rainbow Parenthesis
 Plug 'junegunn/rainbow_parentheses.vim'
+
+" Svelte Syntax
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 
@@ -68,8 +74,17 @@ let g:deoplete#enable_at_startup = 1
 " COLOR SCHEME:
 " --------
 " colorscheme gruvbox
-colorscheme dracula
-let g:dracula_italic = 1
+" colorscheme dracula
+
+colorscheme nightfly
+let g:nightflyTerminalColors = 0
+" let g:moonflyCursorColor = 1
+" let g:moonflyTerminalColors = 1
+" let g:moonflyUnderlineMatchParen = 1
+" let g:moonflyUndercurls = 1
+" let g:moonflyItalics = 1
+
+" let g:dracula_italic = 1
 
 " SYNTAX HIGHLIGHTING:
 "--------------------
@@ -141,4 +156,8 @@ let g:graphql_javascript_tags = ["gql", "graphql", "Relay.QL"]
 " -------------
 au VimEnter * RainbowParentheses
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+
+" Svelte Config:
+" --------------
+let g:svelte_preprocessors = ['typescript']
 
