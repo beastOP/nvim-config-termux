@@ -76,8 +76,8 @@ let g:deoplete#enable_at_startup = 1
 " colorscheme gruvbox
 " colorscheme dracula
 
-colorscheme nightfly
-let g:nightflyTerminalColors = 0
+" colorscheme nightfly
+" let g:nightflyTerminalColors = 0
 " let g:moonflyCursorColor = 1
 " let g:moonflyTerminalColors = 1
 " let g:moonflyUnderlineMatchParen = 1
