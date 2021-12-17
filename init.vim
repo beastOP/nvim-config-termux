@@ -43,6 +43,10 @@ Plug 'jparise/vim-graphql'
 " Rainbow Parenthesis
 Plug 'junegunn/rainbow_parentheses.vim'
 
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Svelte Syntax
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
@@ -89,6 +93,23 @@ let g:nightflyTerminalColors = 1
 " let g:moonflyItalics = 1
 
 " let g:dracula_italic = 1
+
+" Airline:
+" --------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
+let g:airline#extensions#default#section_truncate_width = {
+    \ 'warning': 80,
+    \ 'error': 80,
+    \ 'x': 80,
+    \ 'y': 80}
+let g:airline_mode_map = {
+    \ 'c': 'C',
+    \ 'n': 'N',
+    \ 'V': 'V',
+    \ 'i':'I'}
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
 
 " SYNTAX HIGHLIGHTING:
 "--------------------
