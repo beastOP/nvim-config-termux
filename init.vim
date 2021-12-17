@@ -24,6 +24,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'morhetz/gruvbox'
 " Plug 'crusoexia/vim-dracula'
 " Plug 'bluz71/vim-moonfly-colors'
