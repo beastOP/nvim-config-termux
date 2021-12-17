@@ -70,6 +70,10 @@ let g:rustfmt_autosave = 1
 " DEOPLETE:
 " ---------
 let g:deoplete#enable_at_startup = 1
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+let g:python_host_prog = ''
+let g:python3_host_prog = '/data/data/com.termux/files/usr/bin/python3'
 
 " COLOR SCHEME:
 " --------
