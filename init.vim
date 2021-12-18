@@ -25,14 +25,10 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'deoplete-plugins/deoplete-jedi'
-" Plug 'morhetz/gruvbox'
-" Plug 'crusoexia/vim-dracula'
-" Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'dense-analysis/ale'
-Plug 'jiangmiao/auto-pairs'
 
 " Webdev Plugs
 Plug 'pangloss/vim-javascript'
@@ -67,7 +63,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 
-" AUTO AND FORMAT IMPORT:
+" AUTO FORMAT AND IMPORT:
 " -----------------------
 let g:go_fmt_command = 'goimports'
 let g:rustfmt_autosave = 1
@@ -82,28 +78,16 @@ let g:python3_host_prog = '/data/data/com.termux/files/usr/bin/python3'
 
 " COLOR SCHEME:
 " --------
-" colorscheme gruvbox
-" colorscheme dracula
-
 colorscheme nightfly
 let g:nightflyTerminalColors = 1
-" let g:moonflyCursorColor = 1
-" let g:moonflyTerminalColors = 1
-" let g:moonflyUnderlineMatchParen = 1
-" let g:moonflyUndercurls = 1
-" let g:moonflyItalics = 1
-
-" let g:dracula_italic = 1
 
 " Airline:
 " --------
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme='dark'
-let g:airline#extensions#default#section_truncate_width = {
-    \ 'warning': 80,
-    \ 'error': 80,
-    \ 'x': 80,
-    \ 'y': 80}
 let g:airline_mode_map = {
     \ 'c': 'C',
     \ 'n': 'N',
